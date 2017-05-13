@@ -1,0 +1,61 @@
+MTCars Shiny Application and Reproducible Pitch
+========================================================
+author: Amyn Kanjee
+date: May 13, 2017
+autosize: true
+
+Introduction
+========================================================
+- Simple shiny app that plots the distribution of the fuel efficiency of the cars included in the MT Cars data set
+- The app allows the use to personalize the chart by selecting the number of bins for the histogram, selecting whether or not to display the mpg distribution and the density line
+- The code is based on the sample code provided at http://shiny.rstudio.com
+
+The Dataset
+========================================================
+- The Motor Trend Cars (MTCARS) data set is part of the base library in R
+- The ddata was extracted from the 1974 Motor Trend , and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models)
+- A sample of the the information in the data set can be found below
+```{r, echo=FALSE}
+head(mtcars)
+```
+- More information about the data set can be found at https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html
+
+Sample Plots
+========================================================
+- The app plots the probably density function for the fuel efficiency of the cars included in the data set
+- The plot would look similair to the following
+
+```{r, echo=FALSE}
+             hist(mtcars$mpg,
+             probability = TRUE,
+             breaks = 10,
+             xlab = "Fuel Efficiency (MPG)",
+             main = "MPG Distribution",
+             xlim = c(0,40),
+             ylim = c(0,0.15)
+             )
+            rug(mtcars$mpg)
+            dens <- density(mtcars$mpg)
+            lines(dens, col = "red")
+     
+
+
+```
+
+
+Demo
+========================================================
+A demonstration version of the app can be found at the R-Studio Shiny Server - please give it a try and let me know what you think
+
+https://akanjee.shinyapps.io/C9_Wk4_v3/
+
+Future Enhancements
+========================================================
+Potential Future Enhancements include:
+- Adding the ability to show the denisty based on the number of Gears, Cylinders and/or Transmission
+- Providing Box Plots for the data set
+- Getting a more updated data set 
+
+Thank-You
+========================================================
+Thank-you for taking the tiime to review my proposal
